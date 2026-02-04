@@ -20,7 +20,7 @@ const Form = () => {
         </div>
         <div className="form-header_services">
           <span>📎</span>
-          <h5>REQUEST SAME SERVICE</h5>
+          <h5>REQUEST SERVICE</h5>
         </div>
       </div>
 
@@ -45,8 +45,14 @@ const Form = () => {
         <Button />
         <p className="form-disclaimer">
           By proceeding, you agree to our{" "}
-          <a href="#terms" className="form-disclaimer-link">Terms</a> and{" "}
-          <a href="#privacy" className="form-disclaimer-link">Privacy Policy</a>.
+          <a href="#terms" className="form-disclaimer-link">
+            Terms
+          </a>{" "}
+          and{" "}
+          <a href="#privacy" className="form-disclaimer-link">
+            Privacy Policy
+          </a>
+          .
         </p>
       </div>
     </div>
