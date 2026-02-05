@@ -1,16 +1,22 @@
+import { useState } from "react";
+
 import TextArea from "./TextArea";
 import Button from "../Button";
+import Emoji from "./Emoji";
 
 const Form = () => {
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+
   const emojis = Array.from({ length: 5 }, (_, i) => i + 1);
   const emojiFaces = ["🥵", "😔", "😑", "😌", "🥰"];
-  //   const emojiFeedbackMessages = [
-  //     "Terrible",
-  //     "Very Poor",
-  //     "SOSO",
-  //     "Good",
-  //     "Excellent",
-  //   ];
+  const emojiFeedbackMessages = [
+    "Terrible",
+    "Very Poor",
+    "SOSO",
+    "Good",
+    "Excellent",
+  ];
   return (
     <div className="form-container">
       <div className="form-header">
@@ -29,13 +35,12 @@ const Form = () => {
         <div className="form-body">
           <div className="emoji-container">
             {emojis.map((emoji, index) => (
-              <span key={emoji} className="emoji-card">
-                <span className="emoji-outter_wrapper">
-                  <span className="emoji-inner_wrapper">
-                    <span className="emoji">{emojiFaces[index]}</span>
-                  </span>
-                </span>
-              </span>
+              <Emoji
+                key={emoji}
+                emoji={emoji}
+                emojiFaces={emojiFaces}
+                index={index}
+              />
             ))}
           </div>
         </div>
