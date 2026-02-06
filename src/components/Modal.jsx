@@ -44,17 +44,17 @@ const Modal = ({ isOpen, rating, emojiFaces, emojiFeedbackMessages }) => {
         <div className="modal-actions">
           <button
             type="button"
-            className="modal-btn modal-btn-cancel"
-            onClick={() => isOpen(false)}
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
             className="modal-btn modal-btn-confirm"
             onClick={() => isOpen(false)}
           >
             Confirm
+          </button>
+          <button
+            type="button"
+            className="modal-btn modal-btn-cancel"
+            onClick={() => isOpen(false)}
+          >
+            Cancel
           </button>
         </div>
       </div>

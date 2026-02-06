@@ -1,4 +1,11 @@
+import { useState } from "react";
 const TextArea = () => {
+  const [message, setMessage] = useState("");
+
+  const handleInput = (e) => {
+    setMessage(e.target.value);
+  };
+
   return (
     <div className="form">
       <div className="form-input">
@@ -8,6 +15,8 @@ const TextArea = () => {
           </div>
           <textarea
             name="form-info"
+            value={message}
+            onChange={handleInput}
             rows={4}
             placeholder="Add a comment"
             className="textarea"

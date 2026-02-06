@@ -57,7 +57,7 @@ const Form = () => {
 
         {/* INPUT FORM */}
         <TextArea />
-        <Button setSubmitted={setSubmitted} />
+        <Button setSubmitted={setSubmitted} rating={rating} />
         <p className="form-disclaimer">
           By proceeding, you agree to our{" "}
           <a href="#terms" className="form-disclaimer-link">
