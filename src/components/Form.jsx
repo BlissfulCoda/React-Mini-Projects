@@ -3,10 +3,12 @@ import { useState } from "react";
 import TextArea from "./TextArea";
 import Button from "../Button";
 import Emoji from "./Emoji";
+import Modal from "./Modal";
 
 const Form = () => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
 
   const emojis = Array.from({ length: 5 }, (_, i) => i + 1);
   const emojiFaces = ["🥵", "😔", "😑", "😌", "🥰"];
@@ -17,6 +19,10 @@ const Form = () => {
     "Good",
     "Excellent",
   ];
+
+  const handleHover = (value) => setHover(value);
+  const handleRating = (value) => setRating(value);
+
   return (
     <div className="form-container">
       <div className="form-header">
@@ -33,13 +39,17 @@ const Form = () => {
       <div className="form-bottom">
         {/* EMOJI CONTAINER */}
         <div className="form-body">
-          <div className="emoji-container">
+          <div className="emoji-container emoji-grayscale">
             {emojis.map((emoji, index) => (
               <Emoji
                 key={emoji}
                 emoji={emoji}
                 emojiFaces={emojiFaces}
                 index={index}
+                hover={hover}
+                rating={rating}
+                handleRating={handleRating}
+                handleHover={handleHover}
               />
             ))}
           </div>
@@ -47,7 +57,7 @@ const Form = () => {
 
         {/* INPUT FORM */}
         <TextArea />
-        <Button />
+        <Button setSubmitted={setSubmitted} />
         <p className="form-disclaimer">
           By proceeding, you agree to our{" "}
           <a href="#terms" className="form-disclaimer-link">
@@ -60,6 +70,15 @@ const Form = () => {
           .
         </p>
       </div>
+
+      {submitted && (
+        <Modal
+          isOpen={setSubmitted}
+          rating={rating}
+          emojiFaces={emojiFaces}
+          emojiFeedbackMessages={emojiFeedbackMessages}
+        />
+      )}
     </div>
   );
 };

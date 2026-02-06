@@ -1,6 +1,10 @@
-const Button = () => {
+const Button = ({ setSubmitted }) => {
+  const handleSubmit = () => {
+    if (setSubmitted) setSubmitted(true);
+  };
+
   return (
-    <button className="form-btn">
+    <button type="button" className="form-btn" onClick={handleSubmit}>
       <div className="form-btn_outter">
         <div className="form-btn_inner">
           <span className="form-btn_text">Submit Feedback</span>
